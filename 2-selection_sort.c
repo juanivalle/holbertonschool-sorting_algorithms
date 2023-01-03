@@ -18,14 +18,13 @@ void selection_sort(int *array, size_t size)
 	do {
 		for (pos = 0; pos < largo; pos++)
 		{
-			for (com = pos + 1; com <= largo; com++)
+			for (com = pos + 1; com <= largo - 1; com++)
 			{
 				if (array[com] > array[com + 1])
 				{
 					aux2 = array[com];
 					array[com] = array[com + 1];
 					array[com + 1] = aux2;
-					
 					if (array[pos] > array[com])
 				{
 					aux = array[pos];
