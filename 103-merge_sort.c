@@ -43,10 +43,10 @@ void mergeArrays(int *ar1, size_t s1,  int *ar2, size_t s2)
 	printf("Merging...\n");
 	printf("[left]: ");
 	for (i = 0; i < s1; i++)
-		(i != s1 - 1) ? printf("%d ", ar1[i]) : printf("%d\n", ar1[i]);
+		(i != s1 - 1) ? printf("%d, ", ar1[i]) : printf("%d\n", ar1[i]);
 	printf("[right]: ");
 	for (i = 0; i < s2; i++)
-		(i != s2 - 1) ? printf("%d ", ar2[i]) : printf("%d\n", ar2[i]);
+		(i != s2 - 1) ? printf("%d, ", ar2[i]) : printf("%d\n", ar2[i]);
 
 	for (i = 0, j = 0; i + j < s1 + s2;)
 	{
@@ -67,5 +67,5 @@ void mergeArrays(int *ar1, size_t s1,  int *ar2, size_t s2)
 	free(tmp);
 	printf("[Done]: ");
 	for (i = 0; i < s1 + s2; i++)
-		(i != s1 + s2 - 1) ? printf("%d ", ar1[i]) : printf("%d\n", ar1[i]);
+		(i != s1 + s2 - 1) ? printf("%d, ", ar1[i]) : printf("%d\n", ar1[i]);
 }
