@@ -33,7 +33,8 @@ void merge_sort(int *array, size_t size)
  */
 void mergeArrays(int *ar1, size_t s1,  int *ar2, size_t s2)
 {
-	int *tmp, i, j;
+	int *tmp;
+	size_t i, j;
 
 	tmp = malloc(s1 + s2);
 	if (!tmp)

@@ -30,7 +30,7 @@ void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 void counting_sort(int *array, size_t size);
 void CountingSrt(int *array, int *countArray, int max, size_t size);
-void merge_sort(int *array, size_t size);;
+void merge_sort(int *array, size_t size);
 void mergeArrays(int *ar1, size_t s1,  int *ar2, size_t s2);
 
 #endif
