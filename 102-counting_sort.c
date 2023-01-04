@@ -14,7 +14,7 @@ void counting_sort(int *array, size_t size)
 	int *countArray, max;
 	size_t i;
 
-	if (!array)
+	if (!array || size < 2)
 		return;
 
 	for (i = 1, max = array[0]; i < size; i++)
@@ -36,7 +36,7 @@ void counting_sort(int *array, size_t size)
 			countArray[i + 1] = countArray[i] + 1;
 		printf("%d, ", countArray[i]);
 	}
-	countArray[max] = countArray[max - 1] + 1;
+	countArray[max] = size;
 	printf("%d\n", countArray[max]);
 	CountingSrt(array, countArray, max, size);
 	free(countArray);
