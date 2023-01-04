@@ -11,9 +11,8 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *tmp, *aux;
 	int swaps = 1;
 
-	if (!list || !(*list) || !(*list)->next)
+	if (!list || !(*list))
 		return;
-
 	while (swaps)
 	{
 		for (tmp = *list, swaps = 0; tmp->next; tmp = tmp->next)
@@ -23,6 +22,8 @@ void cocktail_sort_list(listint_t **list)
 			{
 				if (tmp->prev)
 					tmp->prev->next = aux;
+				else /* Change head if insert is at the beginning of list */
+					*list = aux;
 				if (aux->next)
 					aux->next->prev = tmp;
 				aux->prev = tmp->prev, tmp->prev = aux;
