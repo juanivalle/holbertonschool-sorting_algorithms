@@ -13,7 +13,7 @@ void merge_sort(int *array, size_t size)
 {
 	size_t half = size / 2, odd = size % 2;
 
-	if (size == 1)
+	if (!array || size == 1)
 		return;
 
 	merge_sort(array, half);
@@ -36,7 +36,7 @@ void mergeArrays(int *ar1, size_t s1,  int *ar2, size_t s2)
 	int *tmp;
 	size_t i, j;
 
-	tmp = malloc(s1 + s2);
+	tmp = malloc(sizeof(int) * (s1 + s2));
 	if (!tmp)
 		return;
 
