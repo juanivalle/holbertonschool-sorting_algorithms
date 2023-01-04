@@ -11,7 +11,7 @@ size_t partition(int *array, size_t lo, size_t hi, size_t size);
  */
 void quick_sort(int *array, size_t size)
 {
-	if (!array || !size)
+	if (!array || size < 2)
 		return;
 
 	quicksrt(array, 0, size - 1, size);
