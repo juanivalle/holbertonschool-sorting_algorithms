@@ -34,5 +34,7 @@ void merge_sort(int *array, size_t size);
 void mergeArrays(int *ar1, size_t s1,  int *ar2, size_t s2);
 void heap_sort(int *array, size_t size);
 void SiftDown(int *ar, size_t index, size_t heapSize, size_t arraySize);
+void radix_sort(int *array, size_t size);
+
 
 #endif
