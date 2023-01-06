@@ -19,7 +19,7 @@ void radix_sort(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
-	tmp = malloc(sizeof(int) * size);
+	tmp = malloc(sizeof(int) * (size + 1));
 	if (!tmp)
 		exit(98);
 
@@ -27,9 +27,9 @@ void radix_sort(int *array, size_t size)
 	{
 		for (i = 0; i < size; i++) /* Set up counting array */
 			digit = (array[i] / powers[j]) % 10, countArray[digit]++;
-		for (i = 1; i < size; i++) /* Make array cummulative */
+		for (i = 1; i < 10; i++) /* Make array cummulative */
 			countArray[i] += countArray[i - 1];
-		for (i = size; (int) i != 0; i--) /* Shift array to the right */
+		for (i = 10; (int) i != 0; i--) /* Shift array to the right */
 			countArray[i] = countArray[i - 1];
 		countArray[0] = 0;
 		for (i = 0; i < size; i++) /* Insert sorted values in tmp */
