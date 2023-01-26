@@ -37,13 +37,10 @@ void recBitonicSort(int *array, int lo, int cnt, int dir, size_t total_size)
 	if (cnt > 1)
 	{
 		k = cnt / 2;
-		printf("Merging [%d/%ld] (%s)\n", cnt, total_size, dir ? "UP" : "DOWN");
-		print_array(&array[lo], cnt);
 		recBitonicSort(array, lo, k, ASCENDING, total_size);
 		recBitonicSort(array, lo + k, k, DESCENDING, total_size);
-		bitonicMerge(array, lo, cnt, dir);
-		printf("Result [%d/%ld] (%s)\n", cnt, total_size,  dir ? "UP" : "DOWN");
-		print_array(&array[lo], cnt);
+		bitonicMerge(array, lo, cnt, dir, total_size);
+		print_array(array, total_size);
 	}
 }
 
@@ -53,10 +50,11 @@ void recBitonicSort(int *array, int lo, int cnt, int dir, size_t total_size)
  * @lo: initial index in array
  * @cnt: number of items we're sorting
  * @dir: direction of sort. 1 = ASCENDING, 0 = DESCENDING
+ * @total_size: total size of array... used only for printing
  *
  * Return: void
  */
-void bitonicMerge(int *array, int lo, int cnt, int dir)
+void bitonicMerge(int *array, int lo, int cnt, int dir, size_t total_size)
 {
 	int k, i;
 
@@ -64,9 +62,9 @@ void bitonicMerge(int *array, int lo, int cnt, int dir)
 	{
 		k = cnt / 2;
 		for (i = lo; i < lo + k; i++)
-			compare(array, i, i + k, dir);
-		bitonicMerge(array, lo, k, dir);
-		bitonicMerge(array, lo + k, k, dir);
+			compare(array, i, i + k, dir, total_size);
+		bitonicMerge(array, lo, k, dir, total_size);
+		bitonicMerge(array, lo + k, k, dir, total_size);
 	}
 }
 
@@ -78,10 +76,11 @@ void bitonicMerge(int *array, int lo, int cnt, int dir)
  * @i: first index we're comparing
  * @j: second index we're comparing
  * @dir: direction of comparison (1 for ar[i] > ar[j], else 0)
+ * @total_size: total size of array... used only for printing
  *
  * Return: void
  */
-void compare(int *array, int i, int j, int dir)
+void compare(int *array, int i, int j, int dir, size_t total_size)
 {
 	int tmp;
 
@@ -90,6 +89,7 @@ void compare(int *array, int i, int j, int dir)
 		tmp = array[i];
 		array[i] = array[j];
 		array[j] = tmp;
+		print_array(array, total_size);
 	}
 }
 
